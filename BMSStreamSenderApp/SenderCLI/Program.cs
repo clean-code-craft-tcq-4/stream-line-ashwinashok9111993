@@ -18,29 +18,24 @@ namespace SenderCLI
         {
             
             BMSStreamSender sender = new BMSStreamSender();         
-           
-            try
-            {
+        
                 var CommandLineDict = JsonSerializer.Deserialize<Dictionary<string, string>>(
                     String.Join(' ', args)
                     .Replace('\'', '\"'));
 
                 
                 
-                    if (CommandLineDict["method"].Equals("mock") && Int16.Parse(CommandLineDict["numElements"]) < 200)
-                    {
-                        sender.generateMockSequence(Int16.Parse(CommandLineDict["numElements"])).ForEach(x => Console.WriteLine(sender.getCSVWriteLine(x)));
-                    }
-                    if (CommandLineDict["method"].Equals("file") && File.Exists("SampleTestData.txt"))
-                    {
-                            sender.PipeCSVFileData("SampleTestData.txt");
-                    }
-                
-            }
-            catch (Exception ex)
+            if (CommandLineDict["method"].Equals("mock") && Int16.Parse(CommandLineDict["numElements"]) < 200)
             {
-                Console.WriteLine(ex.Message);
+                sender.generateMockSequence(Int16.Parse(CommandLineDict["numElements"])).ForEach(x => Console.WriteLine(sender.getCSVWriteLine(x)));
             }
+            if (CommandLineDict["method"].Equals("file") && File.Exists("SampleTestData.txt"))
+            {
+                    sender.PipeCSVFileData("SampleTestData.txt");
+            }
+                
+            
+         
 
         }
     }

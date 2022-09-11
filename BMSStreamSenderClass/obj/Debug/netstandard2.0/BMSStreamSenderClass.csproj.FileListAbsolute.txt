@@ -7,4 +7,3 @@ C:\Users\HAW2KOR\Source\Repos\stream-line-ashwinashok9111993\BMSStreamSenderClas
 C:\Users\HAW2KOR\Source\Repos\stream-line-ashwinashok9111993\BMSStreamSenderClass\obj\Debug\netstandard2.0\BMSStreamSenderClass.dll
 C:\Users\HAW2KOR\Source\Repos\stream-line-ashwinashok9111993\BMSStreamSenderClass\obj\Debug\netstandard2.0\BMSStreamSenderClass.pdb
 C:\Users\HAW2KOR\Source\Repos\stream-line-ashwinashok9111993\BMSStreamSenderClass\obj\Debug\netstandard2.0\BMSStreamSenderClass.csproj.AssemblyReference.cache
-C:\Users\HAW2KOR\source\repos\stream-line-ashwinashok9111993\BMSStreamSenderClass\obj\Debug\netstandard2.0\BMSStreamSenderClass.csprojAssemblyReference.cache
