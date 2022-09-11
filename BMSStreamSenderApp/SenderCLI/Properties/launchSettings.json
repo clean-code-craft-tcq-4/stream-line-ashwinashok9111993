@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SenderCLI": {
+      "commandName": "Project",
+      "commandLineArgs": "{'method':'mock','numElements':'200'}"
+    }
+  }
+}

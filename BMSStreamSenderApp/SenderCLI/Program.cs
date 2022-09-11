@@ -25,22 +25,17 @@ namespace SenderCLI
                     String.Join(' ', args)
                     .Replace('\'', '\"'));
 
-                if (CommandLineDict["method"].ToLower().Equals("mock") || CommandLineDict["method"].ToLower().Equals("file"))
-                {
+                
+                
                     if (CommandLineDict["method"].Equals("mock") && Int16.Parse(CommandLineDict["numElements"]) < 200)
                     {
                         sender.generateMockSequence(Int16.Parse(CommandLineDict["numElements"])).ForEach(x => Console.WriteLine(sender.getCSVWriteLine(x)));
                     }
-                    if (CommandLineDict["method"].Equals("file"))
+                    if (CommandLineDict["method"].Equals("file") && File.Exists("SampleTestData.txt"))
                     {
-                        //ReadFile
-                        string path = "SampleTestData.txt";
-                        if (File.Exists(path))
-                        {
-                            sender.PipeCSVFileData(path);
-                        }
+                            sender.PipeCSVFileData("SampleTestData.txt");
                     }
-                }
+                
             }
             catch (Exception ex)
             {
