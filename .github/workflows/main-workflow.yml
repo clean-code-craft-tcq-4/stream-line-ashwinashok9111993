@@ -28,9 +28,6 @@ jobs:
     - name: Run tests and collect coverage
       run: dotnet test --collect:"XPlat Code Coverage"
 
-    - name: Install System.Text.Json
-      run: dotnet add package System.Text.Json
-
     - name: Install coverage report generator
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
 
