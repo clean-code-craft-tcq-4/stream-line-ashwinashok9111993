@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 
 namespace BMSStreamSenderClass
 {
@@ -18,12 +17,6 @@ namespace BMSStreamSenderClass
 
     public class BMSStreamSender
     {
-
-        public  string getSensorReading(SensorData sensordata)
-        {
-            return JsonSerializer.Serialize(sensordata);   
-        }
-
         public string getCSVWriteLine(SensorData sensorData)
         {
             return $"{sensorData.Timestamp},{sensorData.Temperature},{sensorData.StateOfCharge},{sensorData.ChargeRate}";
@@ -56,25 +49,6 @@ namespace BMSStreamSenderClass
             {
                 Console.WriteLine(getCSVWriteLine(setSensorDataFromCSV(data)));
             }
-        }
-        public List<SensorData> generateMockSequence(int sequenceCount)
-        {
-            var dataList = new List<SensorData>();
-            foreach (int index in Enumerable.Range(0, sequenceCount))
-            {
-                dataList.Add
-                (
-                    new SensorData()
-                    {
-                        StateOfCharge = (index * 60 / sequenceCount) + 20,
-                        ChargeRate = (index * 0.8f) / sequenceCount,
-                        Temperature = (index * 40 / sequenceCount),
-                        Timestamp = index
-                    }
-                );
-                
-            }
-            return dataList;  
         }
     }
 }
