@@ -13,30 +13,10 @@ namespace SenderCLI
 {
     class Program
     {
-
         public static void Main(string[] args)
-        {
-            
-            BMSStreamSender sender = new BMSStreamSender();         
-        
-                var CommandLineDict = JsonSerializer.Deserialize<Dictionary<string, string>>(
-                    String.Join(' ', args)
-                    .Replace('\'', '\"'));
-
-                
-                
-            if (CommandLineDict["method"].Equals("mock") && Int16.Parse(CommandLineDict["numElements"]) < 200)
-            {
-                sender.generateMockSequence(Int16.Parse(CommandLineDict["numElements"])).ForEach(x => Console.WriteLine(sender.getCSVWriteLine(x)));
-            }
-            if (CommandLineDict["method"].Equals("file") && File.Exists("SampleTestData.txt"))
-            {
-                    sender.PipeCSVFileData("SampleTestData.txt");
-            }
-                
-            
-         
-
+        { 
+            BMSStreamSender sender = new BMSStreamSender();    
+            sender.PipeCSVFileData("SampleTestData.txt");
         }
     }
 }
