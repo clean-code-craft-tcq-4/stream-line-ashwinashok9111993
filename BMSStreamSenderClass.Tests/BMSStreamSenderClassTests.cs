@@ -28,10 +28,10 @@ namespace BMSStreamSenderClass.Tests
         public void TestsetSensorDataFromCSV()
         {
             var obj_under_test = sender.setSensorDataFromCSV("0,2,23,0.4");
-            Assert.Equal(obj_under_test.Timestamp,0);
-            Assert.Equal(obj_under_test.ChargeRate, 0.4f);
-            Assert.Equal(obj_under_test.StateOfCharge, 23);
-            Assert.Equal(obj_under_test.Temperature, 2);
+            Assert.Equal(0,obj_under_test.Timestamp);
+            Assert.Equal(0.4f, obj_under_test.ChargeRate);
+            Assert.Equal(23,obj_under_test.StateOfCharge);
+            Assert.Equal(2, obj_under_test.Temperature);
         }
     }
 }
