@@ -10,10 +10,28 @@ namespace BMSStreamSenderClass.Tests
         BMSStreamSender sender = new BMSStreamSender();
 
         [Fact]
-        public void TestGetSensorReading()
+        public void TestgetCSVWriteLine()
         {
-            Assert.Equal("{\"Temperature\":10,\"StateOfCharge\":20,\"ChargeRate\":0.1}",
-                sender.getSensorReading(new SensorData() { StateOfCharge = 20, ChargeRate = 0.1f, Temperature = 10 }));
+            Assert.Equal
+            ("0,2,23,0.4",
+              sender.getCSVWriteLine(new SensorData()
+                {
+                    Timestamp = 0,
+                    Temperature = 2,
+                    StateOfCharge = 23,
+                    ChargeRate = 0.4F,
+                }
+            ));   
+        }
+
+        [Fact]
+        public void TestsetSensorDataFromCSV()
+        {
+            var obj_under_test = sender.setSensorDataFromCSV("0,2,23,0.4");
+            Assert.Equal(obj_under_test.Timestamp,0);
+            Assert.Equal(obj_under_test.ChargeRate, 0.4f);
+            Assert.Equal(obj_under_test.StateOfCharge, 23);
+            Assert.Equal(obj_under_test.Temperature, 2);
         }
     }
 }
